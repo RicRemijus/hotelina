@@ -1,0 +1,51 @@
+/* css loader*/
+.overlay {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  opacity: 0.7;
+  background-color: #fff;
+}
+.loader {
+  top: 30%;
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+  position: relative;
+  border-radius: 50%;
+  border: 2px solid #333;
+  animation: loader 2s linear infinite;
+}
+@keyframes loader {
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.loader:after {
+  top: -20px;
+  left: 55px;
+  width: 35px;
+  height: 35px;
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background-color: #333;
+}
+.load::before {
+  top: -10px;
+  left: 39px;
+  width: 0;
+  height: 0;
+  content: "";
+  position: absolute;
+  transform: rotate(-90deg);
+  border-bottom: 15px solid black;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+}
+/**End css loader**/

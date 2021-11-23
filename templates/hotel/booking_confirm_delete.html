@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" id="booking-form" method="post">
+        {% csrf_token %}
+        <strong> hello {{user}} , are you sure you want to cancel <br>
+        <h1>{{booking.room.number}}{{booking.get_room_category}}{{booking}}</h1>
+        </strong>
+        <div class="cancel">
+            <button type="submit">Cancel booking</button>
+        </div>
+    </form>
+</body>
+</html>

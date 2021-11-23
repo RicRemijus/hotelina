@@ -1,0 +1,42 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Details</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'fonts/css/all.css' %}">
+</head>
+<body>
+    <div class="nav navbar">
+        <a href="{% url 'hotel:roomList' %}" class="bg-dark text-white">Hotelina</a>
+    </div>
+    <div class="bg-primary text-white">
+        <h2 class="text-center">{{room_category}}</h2>
+    </div>
+    <p>Welcome dear {{user}}</p>
+    <div class="container">
+        <div class="room_pic"></div>
+        <form action="" id="booking-form" method="post">
+            {% csrf_token %}
+            <div class="form-row">
+              <div class="col">
+                <label for="id_check_in">Check_In</label>
+                <input type="date" class="form-control"  name="check_in" id="check_in">
+              </div>
+              <div class="col">
+                <label for="id_check_out">Check_Out</label>
+                <input type="date" class="form-control"  name="check_out" id="check_out">
+              </div> <br>
+              <div class="input-form">
+                <button type="submit" class="btn btn-secondary">Book Now</button>
+            </div>
+            </div>
+          </form> 
+
+    </div>
+</body>
+</html>

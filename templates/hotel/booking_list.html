@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of Booked rooms</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'fonts/css/all.css' %}">
+</head>
+<body>
+    <nav class="nav navbar">
+        <a href="{% url 'hotel:roomList' %}"><H1>Hotelina</H1></a>
+    </nav>
+    <br><br>
+    <div class="container">
+        <div class="heading">
+            <p>Welcome dear {{user}}</p>
+            <h3>Your Booking(s)</h3>
+        </div>
+        {% for booking in booking_list %}
+        <div class="card">
+            <img src="static/fotos.pic1.jpg" alt="foto1">
+            <span class="category">{{booking.get_room_category}}</span>
+            <span class="from">
+                <p>From : {{booking.check_in}}</p>
+            </span>
+            <span class="to">
+                <p>To : {{booking.check_out}}</p>
+            </span>
+            <span class="beds">
+                <p>Beds : {{booking.room.beds}}</p>
+            </span>
+            <span class="capacity">
+                <p>Capacity : {{booking.room.capacity}}</p>
+            </span>
+            <div class="cancel">
+                <a href="{{booking.get_cancel_booking_url}}">Cancel Booking</a>
+            </div>
+        </div>
+            {% endfor %}
+    </div>
+    
+</body>
+</html>
